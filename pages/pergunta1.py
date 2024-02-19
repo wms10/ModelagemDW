@@ -4,9 +4,9 @@ import streamlit as st
 
 # Conectar ao banco de dados
 connection = mysql.connector.connect(
-    host='localhost',
+    host='35.247.239.74',
     user='root',
-    password='2024',
+    password='lQ#>faP@yG{"qMkc',
     database='dw_populado_recife'
 )
 
