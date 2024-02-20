@@ -1,17 +1,6 @@
-#import mysql.connector
 
 import pandas as pd
 import streamlit as st
-
-# Conectar ao banco de dados
-#connection = mysql.connector.connect(
-    #host='35.247.239.74',
-    #user='root',
-    #password='lQ#>faP@yG{"qMkc',
-    #database='dw_populado_recife'
-#)
-
-# Função para executar consultas e obter resultados em um DataFrame
 from sqlalchemy import create_engine, text
 
 # Substitua 'sua_string_de_conexao' pela string de conexão do seu banco de dados
@@ -20,6 +9,27 @@ engine = create_engine(db_connection)
 
 # Estabeleça uma conexão
 conn = engine.connect()
+
+
+# Feche a conexão após o uso
+
+
+
+#import mysql.connector
+#import pandas as pd
+#import streamlit as st
+
+# Conectar ao banco de dados
+#connection = mysql.connector.connect(
+    #host='35.247.239.74',
+    #user='wanderson',
+    #password='12345678',
+    #database='dw_populado_recife'
+#)
+
+# Função para executar consultas e obter resultados em um DataFrame
+def execute_query(query):
+    return pd.read_sql_query(query, conn)
 
 # Título do aplicativo
 st.title("Análise OLAP - Data Warehouse")
@@ -58,3 +68,4 @@ result1 = execute_query(query1)
 # Exibindo os resultados da Consulta 1
 st.write(f"Resultados para a modalidade: {modalidade_selecionada}")
 st.dataframe(result1)
+conn.close()
