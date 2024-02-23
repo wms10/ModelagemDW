@@ -1,13 +1,16 @@
+import mysql.connector
 import pandas as pd
 import streamlit as st
-from sqlalchemy import create_engine, text
-
-# Substitua 'sua_string_de_conexao' pela string de conexão do seu banco de dados
-db_connection = 'mysql+pymysql://wanderson:12345678@35.247.239.74/dw_populado_recife'
-engine = create_engine(db_connection)
-
-# Estabeleça uma conexão
-conn = engine.connect()
+#Conectar ao banco de dados
+connection = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='2024',
+    database='dw_populado_recife'
+)
+# Função para executar consultas e obter resultados em um DataFrame
+def execute_query(query):
+    return pd.read_sql_query(query, connection)
 st.title('Despesas Orçamentárias de Recife-PE')
 
 st.subheader('Data Warehouse das Despesas Orçamentárias de Recife-PE')
@@ -18,4 +21,4 @@ st.markdown("<h3 style='font-size: 16px;'>Fellipe de Brito Lira Batista</h3>", u
 
 
 # Feche a conexão após o uso
-conn.close()
+connection.close()
