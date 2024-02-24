@@ -7,6 +7,7 @@ connection = mysql.connector.connect(
     host='roundhouse.proxy.rlwy.net',
     user='root',
     password='-gceg36h5FB1ggBDFC6Bgaa51hcbh53D',
+    port=35304,
     database='railway'
 )
 # Função para executar consultas e obter resultados em um DataFrame
