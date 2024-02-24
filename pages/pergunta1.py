@@ -4,10 +4,10 @@ import pandas as pd
 import streamlit as st
 #Conectar ao banco de dados
 connection = mysql.connector.connect(
-    host='localhost',
+    host='roundhouse.proxy.rlwy.net',
     user='root',
-    password='2024',
-    database='dw_populado_recife'
+    password='-gceg36h5FB1ggBDFC6Bgaa51hcbh53D',
+    database='railway'
 )
 # Função para executar consultas e obter resultados em um DataFrame
 def execute_query(query):
